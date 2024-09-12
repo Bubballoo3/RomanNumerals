@@ -64,19 +64,21 @@ string Roman::intToRoman(int value){
                 remainder=remainder-value;
                 // cout << "value: " << remainder << ". Numeral: "<< numeral << endl;
             }
-            int gap=value-remainder;
-            char nextChar=RnKeys[i+1];
-            int nextvalue=RnMap.find(nextChar)->second;
-            // cout << "Next Value: " << nextvalue << endl;
-            if(value/nextvalue==2){
-                nextChar=RnKeys[i+2];
-                nextvalue=RnMap.find(nextChar)->second;
-            }
-            if(gap < (nextvalue) && (nextvalue/value) <= 0.2){
-                numeral=numeral.substr(0,numeral.length());
-                numeral.push_back(nextChar);
-                numeral.push_back(numChar);
-                remainder=remainder-(value-nextvalue);
+            if(remainder > 0){
+                int gap=value-remainder;
+                char nextChar=RnKeys[i+1];
+                int nextvalue=RnMap.find(nextChar)->second;
+                // cout << "Next Value: " << nextvalue << endl;
+                if(value/nextvalue==2){
+                    nextChar=RnKeys[i+2];
+                    nextvalue=RnMap.find(nextChar)->second;
+                }
+                if(gap < (nextvalue) && (nextvalue/value) <= 0.2){
+                    numeral=numeral.substr(0,numeral.length());
+                    numeral.push_back(nextChar);
+                    numeral.push_back(numChar);
+                    remainder=remainder-(value-nextvalue);
+                }
             } 
         }
     }
