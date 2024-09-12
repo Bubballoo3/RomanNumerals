@@ -3,6 +3,7 @@
 
 #include <string>
 #include <map>
+#include <vector>
 
 using namespace std;
 
@@ -10,6 +11,7 @@ class Roman {
 private:
     static const map<char,int> RnMap; // Store a conversion between the 
                                       // Roman Numeral characters and values
+    static const vector<char> RnKeys; // Store keys for RnMap
 
     std::string romanNumeral;  // Store Roman numeral as a string
     int integerValue;          // Store the corresponding integer value
