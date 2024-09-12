@@ -2,9 +2,15 @@
 #define ROMAN_H
 
 #include <string>
+#include <map>
+
+using namespace std;
 
 class Roman {
 private:
+    static const map<char,int> RnMap; // Store a conversion between the 
+                                      // Roman Numeral characters and values
+
     std::string romanNumeral;  // Store Roman numeral as a string
     int integerValue;          // Store the corresponding integer value
 
